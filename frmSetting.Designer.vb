@@ -22,26 +22,27 @@ Partial Class frmSetting
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSetting))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.lblResultR2 = New System.Windows.Forms.Label()
+        Me.btnCheckR2 = New System.Windows.Forms.Button()
+        Me.lblResultR1 = New System.Windows.Forms.Label()
+        Me.btnCheckR1 = New System.Windows.Forms.Button()
         Me.txtCameraIpR2 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtCameraIpR1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.lblResultL2 = New System.Windows.Forms.Label()
+        Me.btnCheckL2 = New System.Windows.Forms.Button()
+        Me.lblResultL1 = New System.Windows.Forms.Label()
+        Me.btnCheckL1 = New System.Windows.Forms.Button()
         Me.txtCameraIpL2 = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtCameraIpL1 = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
-        Me.btnCheckR1 = New System.Windows.Forms.Button()
-        Me.lblResultR1 = New System.Windows.Forms.Label()
-        Me.lblResultR2 = New System.Windows.Forms.Label()
-        Me.btnCheckR2 = New System.Windows.Forms.Button()
-        Me.lblResultL1 = New System.Windows.Forms.Label()
-        Me.btnCheckL1 = New System.Windows.Forms.Button()
-        Me.lblResultL2 = New System.Windows.Forms.Label()
-        Me.btnCheckL2 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -61,7 +62,43 @@ Partial Class frmSetting
         Me.GroupBox1.Size = New System.Drawing.Size(381, 91)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Right Camera"
+        Me.GroupBox1.Text = "Sea Side"
+        '
+        'lblResultR2
+        '
+        Me.lblResultR2.AutoSize = True
+        Me.lblResultR2.Location = New System.Drawing.Point(265, 57)
+        Me.lblResultR2.Name = "lblResultR2"
+        Me.lblResultR2.Size = New System.Drawing.Size(37, 13)
+        Me.lblResultR2.TabIndex = 7
+        Me.lblResultR2.Text = "Result"
+        '
+        'btnCheckR2
+        '
+        Me.btnCheckR2.Location = New System.Drawing.Point(199, 53)
+        Me.btnCheckR2.Name = "btnCheckR2"
+        Me.btnCheckR2.Size = New System.Drawing.Size(60, 20)
+        Me.btnCheckR2.TabIndex = 6
+        Me.btnCheckR2.Text = "Check"
+        Me.btnCheckR2.UseVisualStyleBackColor = True
+        '
+        'lblResultR1
+        '
+        Me.lblResultR1.AutoSize = True
+        Me.lblResultR1.Location = New System.Drawing.Point(265, 30)
+        Me.lblResultR1.Name = "lblResultR1"
+        Me.lblResultR1.Size = New System.Drawing.Size(37, 13)
+        Me.lblResultR1.TabIndex = 5
+        Me.lblResultR1.Text = "Result"
+        '
+        'btnCheckR1
+        '
+        Me.btnCheckR1.Location = New System.Drawing.Point(199, 26)
+        Me.btnCheckR1.Name = "btnCheckR1"
+        Me.btnCheckR1.Size = New System.Drawing.Size(60, 20)
+        Me.btnCheckR1.TabIndex = 4
+        Me.btnCheckR1.Text = "Check"
+        Me.btnCheckR1.UseVisualStyleBackColor = True
         '
         'txtCameraIpR2
         '
@@ -112,7 +149,43 @@ Partial Class frmSetting
         Me.GroupBox2.Size = New System.Drawing.Size(381, 91)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Left Camera"
+        Me.GroupBox2.Text = "Land Side"
+        '
+        'lblResultL2
+        '
+        Me.lblResultL2.AutoSize = True
+        Me.lblResultL2.Location = New System.Drawing.Point(265, 56)
+        Me.lblResultL2.Name = "lblResultL2"
+        Me.lblResultL2.Size = New System.Drawing.Size(37, 13)
+        Me.lblResultL2.TabIndex = 11
+        Me.lblResultL2.Text = "Result"
+        '
+        'btnCheckL2
+        '
+        Me.btnCheckL2.Location = New System.Drawing.Point(199, 52)
+        Me.btnCheckL2.Name = "btnCheckL2"
+        Me.btnCheckL2.Size = New System.Drawing.Size(60, 20)
+        Me.btnCheckL2.TabIndex = 10
+        Me.btnCheckL2.Text = "Check"
+        Me.btnCheckL2.UseVisualStyleBackColor = True
+        '
+        'lblResultL1
+        '
+        Me.lblResultL1.AutoSize = True
+        Me.lblResultL1.Location = New System.Drawing.Point(265, 31)
+        Me.lblResultL1.Name = "lblResultL1"
+        Me.lblResultL1.Size = New System.Drawing.Size(37, 13)
+        Me.lblResultL1.TabIndex = 9
+        Me.lblResultL1.Text = "Result"
+        '
+        'btnCheckL1
+        '
+        Me.btnCheckL1.Location = New System.Drawing.Point(199, 27)
+        Me.btnCheckL1.Name = "btnCheckL1"
+        Me.btnCheckL1.Size = New System.Drawing.Size(60, 20)
+        Me.btnCheckL1.TabIndex = 8
+        Me.btnCheckL1.Text = "Check"
+        Me.btnCheckL1.UseVisualStyleBackColor = True
         '
         'txtCameraIpL2
         '
@@ -166,78 +239,6 @@ Partial Class frmSetting
         Me.btnCancel.Text = "Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
         '
-        'btnCheckR1
-        '
-        Me.btnCheckR1.Location = New System.Drawing.Point(199, 26)
-        Me.btnCheckR1.Name = "btnCheckR1"
-        Me.btnCheckR1.Size = New System.Drawing.Size(60, 20)
-        Me.btnCheckR1.TabIndex = 4
-        Me.btnCheckR1.Text = "Check"
-        Me.btnCheckR1.UseVisualStyleBackColor = True
-        '
-        'lblResultR1
-        '
-        Me.lblResultR1.AutoSize = True
-        Me.lblResultR1.Location = New System.Drawing.Point(265, 30)
-        Me.lblResultR1.Name = "lblResultR1"
-        Me.lblResultR1.Size = New System.Drawing.Size(37, 13)
-        Me.lblResultR1.TabIndex = 5
-        Me.lblResultR1.Text = "Result"
-        '
-        'lblResultR2
-        '
-        Me.lblResultR2.AutoSize = True
-        Me.lblResultR2.Location = New System.Drawing.Point(265, 57)
-        Me.lblResultR2.Name = "lblResultR2"
-        Me.lblResultR2.Size = New System.Drawing.Size(37, 13)
-        Me.lblResultR2.TabIndex = 7
-        Me.lblResultR2.Text = "Result"
-        '
-        'btnCheckR2
-        '
-        Me.btnCheckR2.Location = New System.Drawing.Point(199, 53)
-        Me.btnCheckR2.Name = "btnCheckR2"
-        Me.btnCheckR2.Size = New System.Drawing.Size(60, 20)
-        Me.btnCheckR2.TabIndex = 6
-        Me.btnCheckR2.Text = "Check"
-        Me.btnCheckR2.UseVisualStyleBackColor = True
-        '
-        'lblResultL1
-        '
-        Me.lblResultL1.AutoSize = True
-        Me.lblResultL1.Location = New System.Drawing.Point(265, 31)
-        Me.lblResultL1.Name = "lblResultL1"
-        Me.lblResultL1.Size = New System.Drawing.Size(37, 13)
-        Me.lblResultL1.TabIndex = 9
-        Me.lblResultL1.Text = "Result"
-        '
-        'btnCheckL1
-        '
-        Me.btnCheckL1.Location = New System.Drawing.Point(199, 27)
-        Me.btnCheckL1.Name = "btnCheckL1"
-        Me.btnCheckL1.Size = New System.Drawing.Size(60, 20)
-        Me.btnCheckL1.TabIndex = 8
-        Me.btnCheckL1.Text = "Check"
-        Me.btnCheckL1.UseVisualStyleBackColor = True
-        '
-        'lblResultL2
-        '
-        Me.lblResultL2.AutoSize = True
-        Me.lblResultL2.Location = New System.Drawing.Point(265, 56)
-        Me.lblResultL2.Name = "lblResultL2"
-        Me.lblResultL2.Size = New System.Drawing.Size(37, 13)
-        Me.lblResultL2.TabIndex = 11
-        Me.lblResultL2.Text = "Result"
-        '
-        'btnCheckL2
-        '
-        Me.btnCheckL2.Location = New System.Drawing.Point(199, 52)
-        Me.btnCheckL2.Name = "btnCheckL2"
-        Me.btnCheckL2.Size = New System.Drawing.Size(60, 20)
-        Me.btnCheckL2.TabIndex = 10
-        Me.btnCheckL2.Text = "Check"
-        Me.btnCheckL2.UseVisualStyleBackColor = True
-        '
         'frmSetting
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -247,6 +248,8 @@ Partial Class frmSetting
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmSetting"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Camera Setting"

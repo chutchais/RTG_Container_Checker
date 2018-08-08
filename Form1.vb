@@ -46,26 +46,26 @@ Public Class frmMain
     End Sub
 
     Private Sub initial_camera_platlist()
-        With AxVLCPluginR1
+        With AxVLCPluginSea1
             'Stream for mutiple view (low res)
             .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_R_1 & "/Streaming/Channels/" & vChannel)
             'Straem for full HD
             .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_R_1 & "/Streaming/Channels/1")
         End With
 
-        With AxVLCPluginR2
+        With AxVLCPluginSea2
             .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_R_2 & "/Streaming/Channels/" & vChannel)
             .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_R_2 & "/Streaming/Channels/1")
         End With
 
         'On Bottom Camera
-        With AxVLCPluginL1
+        With AxVLCPluginLand1
             .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_L_1 & "/Streaming/Channels/" & vChannel)
             .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_L_1 & "/Streaming/Channels/1")
 
         End With
 
-        With AxVLCPluginL2
+        With AxVLCPluginLand2
             .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_L_2 & "/Streaming/Channels/" & vChannel)
             .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_L_2 & "/Streaming/Channels/1")
         End With
@@ -74,21 +74,21 @@ Public Class frmMain
     Private Sub play_camera(Optional playlistIndex As Integer = 0)
         'On Top Camera
 
-        With AxVLCPluginR1
+        With AxVLCPluginSea1
             .playlist.playItem(playlistIndex)
         End With
 
-        With AxVLCPluginR2
+        With AxVLCPluginSea2
             .playlist.playItem(playlistIndex)
         End With
 
         'On Bottom Camera
-        With AxVLCPluginL1
+        With AxVLCPluginLand1
             .playlist.playItem(playlistIndex)
 
         End With
 
-        With AxVLCPluginL2
+        With AxVLCPluginLand2
             .playlist.playItem(playlistIndex)
         End With
         ''On Top Camera
@@ -134,53 +134,78 @@ Public Class frmMain
     End Function
 
     Private Sub CenterToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CenterToolStripMenuItem.Click
-        SplitContainer1.Panel1Collapsed = False
-        SplitContainer1.Panel2Collapsed = False
-
-        Dim playlistIndex As Integer = 0 'Low resolution
-        AxVLCPluginR1.playlist.playItem(playlistIndex)
-        AxVLCPluginR2.playlist.playItem(playlistIndex)
-        AxVLCPluginL1.playlist.playItem(playlistIndex)
-        AxVLCPluginL2.playlist.playItem(playlistIndex)
-
+        show_all_side()
     End Sub
 
-    Private Sub SwitchToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SwitchToolStripMenuItem.Click
-        SplitContainer1.Panel1Collapsed = vToggleView
-        SplitContainer1.Panel2Collapsed = Not vToggleView
 
-        If SplitContainer1.Panel1Collapsed Then
-            'Disable
-            AxVLCPluginR2.playlist.stop()
-            AxVLCPluginR2.playlist.stop()
-            'Enable
-
-            AxVLCPluginL1.playlist.playItem(1)
-            AxVLCPluginL2.playlist.playItem(1)
-            AxVLCPluginL1.playlist.play()
-            AxVLCPluginL2.playlist.play()
-        Else
-            'Enable
-            AxVLCPluginR1.playlist.playItem(1)
-            AxVLCPluginR2.playlist.playItem(1)
-            AxVLCPluginR1.playlist.play()
-            AxVLCPluginR2.playlist.play()
-            'Disable
-
-            'AxVLCPluginL1.playlist.playItem(0)
-            'AxVLCPluginL2.playlist.playItem(0)
-            AxVLCPluginL2.playlist.stop()
-            AxVLCPluginL1.playlist.stop()
-        End If
-
-
-
-        vToggleView = Not vToggleView
-    End Sub
 
     Private Sub SettingToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SettingToolStripMenuItem.Click
         frmSetting.ShowDialog()
         'reload_setting()
         'reload_camera()
+    End Sub
+
+    Private Sub SeaSideToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SeaSideToolStripMenuItem.Click
+        show_sea_side()
+    End Sub
+
+    Sub show_all_side()
+        SplitContainer1.Panel1Collapsed = False
+        SplitContainer1.Panel2Collapsed = False
+
+        Dim playlistIndex As Integer = 0 'Low resolution
+        AxVLCPluginSea1.playlist.playItem(playlistIndex)
+        AxVLCPluginSea2.playlist.playItem(playlistIndex)
+        AxVLCPluginLand1.playlist.playItem(playlistIndex)
+        AxVLCPluginLand2.playlist.playItem(playlistIndex)
+    End Sub
+    Sub show_sea_side()
+        'Land (11,12)
+        'Sea (21,22)
+        SplitContainer1.Panel1Collapsed = False 'Show sea
+        SplitContainer1.Panel2Collapsed = True   'Hide land
+
+        'Enable Sea side (11,12)
+        AxVLCPluginSea1.playlist.playItem(1)
+        AxVLCPluginSea2.playlist.playItem(1)
+        AxVLCPluginSea1.playlist.play()
+        AxVLCPluginSea2.playlist.play()
+
+        'Disable Land side (21,22)
+        AxVLCPluginLand1.playlist.stop()
+        AxVLCPluginLand2.playlist.stop()
+    End Sub
+
+    Sub show_land_side()
+        'Land (11,12)
+        'Sea (21,22)
+        SplitContainer1.Panel1Collapsed = True 'Hide sea
+        SplitContainer1.Panel2Collapsed = False   'Show land
+
+        'Enable Land side (21,22)
+        AxVLCPluginLand1.playlist.playItem(1)
+        AxVLCPluginLand2.playlist.playItem(1)
+        AxVLCPluginLand1.playlist.play()
+        AxVLCPluginLand2.playlist.play()
+
+        'Disable Sea side (11,12)
+        AxVLCPluginSea1.playlist.stop()
+        AxVLCPluginSea2.playlist.stop()
+    End Sub
+
+    Private Sub LandSideToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LandSideToolStripMenuItem.Click
+        show_land_side()
+    End Sub
+
+    Private Sub tsbSeaside_Click(sender As Object, e As EventArgs) Handles tsbSeaside.Click
+        show_sea_side()
+    End Sub
+
+    Private Sub tsbLandSide_Click(sender As Object, e As EventArgs) Handles tsbLandSide.Click
+        show_land_side()
+    End Sub
+
+    Private Sub tsbAll_Click(sender As Object, e As EventArgs) Handles tsbAll.Click
+        show_all_side()
     End Sub
 End Class
