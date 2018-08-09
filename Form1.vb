@@ -160,8 +160,7 @@ Public Class frmMain
         AxVLCPluginLand2.playlist.playItem(playlistIndex)
     End Sub
     Sub show_sea_side()
-        'Land (11,12)
-        'Sea (21,22)
+
         SplitContainer1.Panel1Collapsed = False 'Show sea
         SplitContainer1.Panel2Collapsed = True   'Hide land
 
@@ -177,8 +176,7 @@ Public Class frmMain
     End Sub
 
     Sub show_land_side()
-        'Land (11,12)
-        'Sea (21,22)
+
         SplitContainer1.Panel1Collapsed = True 'Hide sea
         SplitContainer1.Panel2Collapsed = False   'Show land
 
