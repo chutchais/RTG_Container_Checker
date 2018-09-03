@@ -1,4 +1,5 @@
-﻿Imports System.Reflection
+﻿Imports System.Net
+Imports System.Reflection
 Imports System.Resources
 
 Public Class frmMain
@@ -42,8 +43,28 @@ Public Class frmMain
         Dim versionNumber As Version
 
         versionNumber = Assembly.GetExecutingAssembly().GetName().Version
-        Me.Text = Me.Text & " version :" & versionNumber.ToString
+        Me.Text = Me.Text & " version :" & versionNumber.ToString & "  (ip : " & GetIPv4Address() & ")"
     End Sub
+
+    Private Function GetIPv4Address() As String
+        GetIPv4Address = String.Empty
+        Dim strHostName As String = System.Net.Dns.GetHostName()
+        Dim iphe As System.Net.IPHostEntry = System.Net.Dns.GetHostEntry(strHostName)
+
+        For Each ipheal As System.Net.IPAddress In iphe.AddressList
+            If ipheal.AddressFamily = System.Net.Sockets.AddressFamily.InterNetwork Then
+                If ipheal.ToString() <> "192.168.1.10" Then
+                    GetIPv4Address = ipheal.ToString()
+                    Exit For
+                End If
+
+            End If
+        Next
+
+
+
+
+    End Function
 
     Private Sub initial_camera_platlist()
         With AxVLCPluginSea1
