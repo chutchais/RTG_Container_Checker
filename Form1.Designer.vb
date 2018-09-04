@@ -186,19 +186,19 @@ Partial Class frmMain
         'SeaSideToolStripMenuItem
         '
         Me.SeaSideToolStripMenuItem.Name = "SeaSideToolStripMenuItem"
-        Me.SeaSideToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SeaSideToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
         Me.SeaSideToolStripMenuItem.Text = "Sea Side"
         '
         'LandSideToolStripMenuItem
         '
         Me.LandSideToolStripMenuItem.Name = "LandSideToolStripMenuItem"
-        Me.LandSideToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.LandSideToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
         Me.LandSideToolStripMenuItem.Text = "Land Side"
         '
         'CenterToolStripMenuItem
         '
         Me.CenterToolStripMenuItem.Name = "CenterToolStripMenuItem"
-        Me.CenterToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CenterToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
         Me.CenterToolStripMenuItem.Text = "&ALL"
         '
         'ToolStrip1

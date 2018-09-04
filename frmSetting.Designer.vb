@@ -43,12 +43,18 @@ Partial Class frmSetting
         Me.Label4 = New System.Windows.Forms.Label()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
+        Me.lblSeaLeft = New System.Windows.Forms.Label()
+        Me.lblSeaRight = New System.Windows.Forms.Label()
+        Me.lblLandLeft = New System.Windows.Forms.Label()
+        Me.lblLandRight = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.lblSeaRight)
+        Me.GroupBox1.Controls.Add(Me.lblSeaLeft)
         Me.GroupBox1.Controls.Add(Me.lblResultR2)
         Me.GroupBox1.Controls.Add(Me.btnCheckR2)
         Me.GroupBox1.Controls.Add(Me.lblResultR1)
@@ -59,7 +65,7 @@ Partial Class frmSetting
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(11, 9)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(381, 91)
+        Me.GroupBox1.Size = New System.Drawing.Size(492, 91)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Sea Side"
@@ -67,7 +73,7 @@ Partial Class frmSetting
         'lblResultR2
         '
         Me.lblResultR2.AutoSize = True
-        Me.lblResultR2.Location = New System.Drawing.Point(265, 57)
+        Me.lblResultR2.Location = New System.Drawing.Point(356, 57)
         Me.lblResultR2.Name = "lblResultR2"
         Me.lblResultR2.Size = New System.Drawing.Size(37, 13)
         Me.lblResultR2.TabIndex = 7
@@ -75,7 +81,7 @@ Partial Class frmSetting
         '
         'btnCheckR2
         '
-        Me.btnCheckR2.Location = New System.Drawing.Point(199, 53)
+        Me.btnCheckR2.Location = New System.Drawing.Point(290, 53)
         Me.btnCheckR2.Name = "btnCheckR2"
         Me.btnCheckR2.Size = New System.Drawing.Size(60, 20)
         Me.btnCheckR2.TabIndex = 6
@@ -85,7 +91,7 @@ Partial Class frmSetting
         'lblResultR1
         '
         Me.lblResultR1.AutoSize = True
-        Me.lblResultR1.Location = New System.Drawing.Point(265, 30)
+        Me.lblResultR1.Location = New System.Drawing.Point(356, 30)
         Me.lblResultR1.Name = "lblResultR1"
         Me.lblResultR1.Size = New System.Drawing.Size(37, 13)
         Me.lblResultR1.TabIndex = 5
@@ -93,7 +99,7 @@ Partial Class frmSetting
         '
         'btnCheckR1
         '
-        Me.btnCheckR1.Location = New System.Drawing.Point(199, 26)
+        Me.btnCheckR1.Location = New System.Drawing.Point(290, 26)
         Me.btnCheckR1.Name = "btnCheckR1"
         Me.btnCheckR1.Size = New System.Drawing.Size(60, 20)
         Me.btnCheckR1.TabIndex = 4
@@ -102,7 +108,7 @@ Partial Class frmSetting
         '
         'txtCameraIpR2
         '
-        Me.txtCameraIpR2.Location = New System.Drawing.Point(74, 53)
+        Me.txtCameraIpR2.Location = New System.Drawing.Point(165, 53)
         Me.txtCameraIpR2.Name = "txtCameraIpR2"
         Me.txtCameraIpR2.Size = New System.Drawing.Size(119, 20)
         Me.txtCameraIpR2.TabIndex = 3
@@ -111,7 +117,7 @@ Partial Class frmSetting
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(16, 56)
+        Me.Label2.Location = New System.Drawing.Point(107, 56)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(52, 13)
         Me.Label2.TabIndex = 2
@@ -119,7 +125,7 @@ Partial Class frmSetting
         '
         'txtCameraIpR1
         '
-        Me.txtCameraIpR1.Location = New System.Drawing.Point(74, 27)
+        Me.txtCameraIpR1.Location = New System.Drawing.Point(165, 27)
         Me.txtCameraIpR1.Name = "txtCameraIpR1"
         Me.txtCameraIpR1.Size = New System.Drawing.Size(119, 20)
         Me.txtCameraIpR1.TabIndex = 1
@@ -128,7 +134,7 @@ Partial Class frmSetting
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(16, 30)
+        Me.Label1.Location = New System.Drawing.Point(107, 30)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(52, 13)
         Me.Label1.TabIndex = 0
@@ -136,6 +142,8 @@ Partial Class frmSetting
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.lblLandRight)
+        Me.GroupBox2.Controls.Add(Me.lblLandLeft)
         Me.GroupBox2.Controls.Add(Me.lblResultL2)
         Me.GroupBox2.Controls.Add(Me.btnCheckL2)
         Me.GroupBox2.Controls.Add(Me.lblResultL1)
@@ -146,7 +154,7 @@ Partial Class frmSetting
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Location = New System.Drawing.Point(11, 106)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(381, 91)
+        Me.GroupBox2.Size = New System.Drawing.Size(492, 91)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Land Side"
@@ -154,7 +162,7 @@ Partial Class frmSetting
         'lblResultL2
         '
         Me.lblResultL2.AutoSize = True
-        Me.lblResultL2.Location = New System.Drawing.Point(265, 56)
+        Me.lblResultL2.Location = New System.Drawing.Point(353, 56)
         Me.lblResultL2.Name = "lblResultL2"
         Me.lblResultL2.Size = New System.Drawing.Size(37, 13)
         Me.lblResultL2.TabIndex = 11
@@ -162,7 +170,7 @@ Partial Class frmSetting
         '
         'btnCheckL2
         '
-        Me.btnCheckL2.Location = New System.Drawing.Point(199, 52)
+        Me.btnCheckL2.Location = New System.Drawing.Point(287, 52)
         Me.btnCheckL2.Name = "btnCheckL2"
         Me.btnCheckL2.Size = New System.Drawing.Size(60, 20)
         Me.btnCheckL2.TabIndex = 10
@@ -172,7 +180,7 @@ Partial Class frmSetting
         'lblResultL1
         '
         Me.lblResultL1.AutoSize = True
-        Me.lblResultL1.Location = New System.Drawing.Point(265, 31)
+        Me.lblResultL1.Location = New System.Drawing.Point(353, 31)
         Me.lblResultL1.Name = "lblResultL1"
         Me.lblResultL1.Size = New System.Drawing.Size(37, 13)
         Me.lblResultL1.TabIndex = 9
@@ -180,7 +188,7 @@ Partial Class frmSetting
         '
         'btnCheckL1
         '
-        Me.btnCheckL1.Location = New System.Drawing.Point(199, 27)
+        Me.btnCheckL1.Location = New System.Drawing.Point(287, 27)
         Me.btnCheckL1.Name = "btnCheckL1"
         Me.btnCheckL1.Size = New System.Drawing.Size(60, 20)
         Me.btnCheckL1.TabIndex = 8
@@ -189,7 +197,7 @@ Partial Class frmSetting
         '
         'txtCameraIpL2
         '
-        Me.txtCameraIpL2.Location = New System.Drawing.Point(74, 53)
+        Me.txtCameraIpL2.Location = New System.Drawing.Point(162, 53)
         Me.txtCameraIpL2.Name = "txtCameraIpL2"
         Me.txtCameraIpL2.Size = New System.Drawing.Size(119, 20)
         Me.txtCameraIpL2.TabIndex = 3
@@ -198,7 +206,7 @@ Partial Class frmSetting
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(16, 56)
+        Me.Label3.Location = New System.Drawing.Point(104, 56)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(52, 13)
         Me.Label3.TabIndex = 2
@@ -206,7 +214,7 @@ Partial Class frmSetting
         '
         'txtCameraIpL1
         '
-        Me.txtCameraIpL1.Location = New System.Drawing.Point(74, 27)
+        Me.txtCameraIpL1.Location = New System.Drawing.Point(162, 27)
         Me.txtCameraIpL1.Name = "txtCameraIpL1"
         Me.txtCameraIpL1.Size = New System.Drawing.Size(119, 20)
         Me.txtCameraIpL1.TabIndex = 1
@@ -215,7 +223,7 @@ Partial Class frmSetting
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(16, 30)
+        Me.Label4.Location = New System.Drawing.Point(104, 30)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(52, 13)
         Me.Label4.TabIndex = 0
@@ -223,7 +231,7 @@ Partial Class frmSetting
         '
         'btnSave
         '
-        Me.btnSave.Location = New System.Drawing.Point(85, 203)
+        Me.btnSave.Location = New System.Drawing.Point(131, 203)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(119, 34)
         Me.btnSave.TabIndex = 2
@@ -232,18 +240,58 @@ Partial Class frmSetting
         '
         'btnCancel
         '
-        Me.btnCancel.Location = New System.Drawing.Point(210, 203)
+        Me.btnCancel.Location = New System.Drawing.Point(256, 203)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(119, 34)
         Me.btnCancel.TabIndex = 3
         Me.btnCancel.Text = "Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
         '
+        'lblSeaLeft
+        '
+        Me.lblSeaLeft.AutoSize = True
+        Me.lblSeaLeft.ForeColor = System.Drawing.Color.Blue
+        Me.lblSeaLeft.Location = New System.Drawing.Point(6, 30)
+        Me.lblSeaLeft.Name = "lblSeaLeft"
+        Me.lblSeaLeft.Size = New System.Drawing.Size(50, 13)
+        Me.lblSeaLeft.TabIndex = 8
+        Me.lblSeaLeft.Text = "Hikvision"
+        '
+        'lblSeaRight
+        '
+        Me.lblSeaRight.AutoSize = True
+        Me.lblSeaRight.ForeColor = System.Drawing.Color.Blue
+        Me.lblSeaRight.Location = New System.Drawing.Point(6, 56)
+        Me.lblSeaRight.Name = "lblSeaRight"
+        Me.lblSeaRight.Size = New System.Drawing.Size(50, 13)
+        Me.lblSeaRight.TabIndex = 9
+        Me.lblSeaRight.Text = "Hikvision"
+        '
+        'lblLandLeft
+        '
+        Me.lblLandLeft.AutoSize = True
+        Me.lblLandLeft.ForeColor = System.Drawing.Color.Blue
+        Me.lblLandLeft.Location = New System.Drawing.Point(6, 30)
+        Me.lblLandLeft.Name = "lblLandLeft"
+        Me.lblLandLeft.Size = New System.Drawing.Size(50, 13)
+        Me.lblLandLeft.TabIndex = 12
+        Me.lblLandLeft.Text = "Hikvision"
+        '
+        'lblLandRight
+        '
+        Me.lblLandRight.AutoSize = True
+        Me.lblLandRight.ForeColor = System.Drawing.Color.Blue
+        Me.lblLandRight.Location = New System.Drawing.Point(6, 56)
+        Me.lblLandRight.Name = "lblLandRight"
+        Me.lblLandRight.Size = New System.Drawing.Size(50, 13)
+        Me.lblLandRight.TabIndex = 13
+        Me.lblLandRight.Text = "Hikvision"
+        '
         'frmSetting
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(403, 249)
+        Me.ClientSize = New System.Drawing.Size(512, 249)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.GroupBox2)
@@ -281,4 +329,8 @@ Partial Class frmSetting
     Friend WithEvents btnCheckL2 As Button
     Friend WithEvents lblResultL1 As Label
     Friend WithEvents btnCheckL1 As Button
+    Friend WithEvents lblSeaRight As Label
+    Friend WithEvents lblSeaLeft As Label
+    Friend WithEvents lblLandRight As Label
+    Friend WithEvents lblLandLeft As Label
 End Class

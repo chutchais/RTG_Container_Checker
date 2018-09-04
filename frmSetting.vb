@@ -9,6 +9,24 @@ Public Class frmSetting
         txtCameraIpR2.Text = resx.GetString("ip_r_2")
         txtCameraIpL1.Text = resx.GetString("ip_l_1")
         txtCameraIpL2.Text = resx.GetString("ip_l_2")
+
+        'Read Brand Setting from system.ini
+        Dim fName As String = ("system.ini")              'path to text file
+        Dim MyIni As New Ini(fName)
+        Dim vCamera_Land_Left As String = ""
+        Dim vCamera_Land_Right As String = ""
+        Dim vCamera_Sea_Left As String = ""
+        Dim vCamera_Sea_Right As String = ""
+        vCamera_Land_Left = MyIni.GetValue("camera_land_left", "brand")
+        vCamera_Land_Right = MyIni.GetValue("camera_land_right", "brand")
+        vCamera_Sea_Left = MyIni.GetValue("camera_sea_left", "brand")
+        vCamera_Sea_Right = MyIni.GetValue("camera_sea_right", "brand")
+
+        lblLandLeft.Text = IIf(vCamera_Land_Left = "", "Hikvision", vCamera_Land_Left)
+        lblLandRight.Text = IIf(vCamera_Land_Right = "", "Hikvision", vCamera_Land_Right)
+        lblSeaLeft.Text = IIf(vCamera_Sea_Left = "", "Hikvision", vCamera_Sea_Left)
+        lblSeaRight.Text = IIf(vCamera_Sea_Right = "", "Hikvision", vCamera_Sea_Right)
+
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click

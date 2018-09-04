@@ -1,8 +1,17 @@
-﻿Imports System.Net
+﻿Imports System.IO
+Imports System.Net
 Imports System.Reflection
 Imports System.Resources
 
 Public Class frmMain
+    Dim MyIni As Ini
+
+    Dim vCamera_Land_Left As String = "hikvision"
+    Dim vCamera_Land_Right As String = "hikvision"
+
+    Dim vCamera_Sea_Left As String = "hikvision"
+    Dim vCamera_Sea_Right As String = "hikvision"
+
     Dim vCameraIp_R_1 As String = "0"
     Dim vCameraIp_R_2 As String = "0"
     Dim vCameraIp_L_1 As String = "0"
@@ -35,6 +44,10 @@ Public Class frmMain
     'End Sub
 
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
+
+        Dim fName As String = ("system.ini")              'path to text file
+        MyIni = New Ini(fName)
+
         reload_setting()
         initial_camera_platlist()
 
@@ -67,28 +80,56 @@ Public Class frmMain
     End Function
 
     Private Sub initial_camera_platlist()
+
+        'Dahua Camera
+        'rtsp://admin:admin@192.168.1.108: 554/cam/realmonitor?channel=1&subtype=0 - Main stream
+        'rtsp://admin:admin@192.168.1.108: 554/cam/realmonitor?channel=1&subtype=1 - Sub stream
+
+
+        'Sea-Left
         With AxVLCPluginSea1
-            'Stream for mutiple view (low res)
-            .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_R_1 & "/Streaming/Channels/" & vChannel)
-            'Straem for full HD
-            .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_R_1 & "/Streaming/Channels/1")
+            If vCamera_Sea_Left = "Hikvision" Then
+                .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_R_1 & "/Streaming/Channels/" & vChannel)
+                .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_R_1 & "/Streaming/Channels/1")
+            Else 'Dahua
+                .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_R_1 & ": 554/cam/realmonitor?channel=1&subtype=1") 'Sub stream
+                .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_R_1 & ": 554/cam/realmonitor?channel=1&subtype=0") 'Main Stream
+            End If
+
         End With
 
+        'Sea-Right
         With AxVLCPluginSea2
-            .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_R_2 & "/Streaming/Channels/" & vChannel)
-            .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_R_2 & "/Streaming/Channels/1")
+            If vCamera_Sea_Right = "Hikvision" Then
+                .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_R_2 & "/Streaming/Channels/" & vChannel)
+                .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_R_2 & "/Streaming/Channels/1")
+            Else
+                .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_R_2 & ": 554/cam/realmonitor?channel=1&subtype=1") 'Sub stream
+                .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_R_2 & ": 554/cam/realmonitor?channel=1&subtype=0") 'Main Stream
+            End If
         End With
 
-        'On Bottom Camera
+        'Land-Left
         With AxVLCPluginLand1
-            .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_L_1 & "/Streaming/Channels/" & vChannel)
-            .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_L_1 & "/Streaming/Channels/1")
-
+            If vCamera_Land_Left = "Hikvision" Then
+                .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_L_1 & "/Streaming/Channels/" & vChannel)
+                .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_L_1 & "/Streaming/Channels/1")
+            Else
+                .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_L_1 & ": 554/cam/realmonitor?channel=1&subtype=1") 'Sub stream
+                .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_L_1 & ": 554/cam/realmonitor?channel=1&subtype=0") 'Main Stream
+            End If
         End With
 
+        'Land-Right
         With AxVLCPluginLand2
-            .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_L_2 & "/Streaming/Channels/" & vChannel)
-            .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_L_2 & "/Streaming/Channels/1")
+            If vCamera_Land_Right = "Hikvision" Then
+                .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_L_2 & "/Streaming/Channels/" & vChannel)
+                .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_L_2 & "/Streaming/Channels/1")
+            Else
+                .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_L_2 & ": 554/cam/realmonitor?channel=1&subtype=1") 'Sub stream
+                .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_L_2 & ": 554/cam/realmonitor?channel=1&subtype=0") 'Main Stream
+            End If
+
         End With
     End Sub
 
@@ -112,29 +153,6 @@ Public Class frmMain
         With AxVLCPluginLand2
             .playlist.playItem(playlistIndex)
         End With
-        ''On Top Camera
-
-        'With AxVLCPluginR1
-        '    .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_R_1 & "/Streaming/Channels/" & vChannel)
-        '    .playlist.playItem(0)
-        'End With
-
-        'With AxVLCPluginR2
-        '    .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_R_2 & "/Streaming/Channels/" & vChannel)
-        '    .playlist.playItem(0)
-        'End With
-
-        ''On Bottom Camera
-        'With AxVLCPluginL1
-        '    .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_L_1 & "/Streaming/Channels/" & vChannel)
-        '    .playlist.playItem(0)
-
-        'End With
-
-        'With AxVLCPluginL2
-        '    .playlist.add("rtsp://" & vUser & ":" & vPassword & "@" & vCameraIp_L_2 & "/Streaming/Channels/" & vChannel)
-        '    .playlist.playItem(0)
-        'End With
 
     End Sub
     Private Sub reload_setting()
@@ -146,6 +164,18 @@ Public Class frmMain
         vUser = resx.GetString("user")
         vPassword = resx.GetString("password")
         vChannel = resx.GetString("channel")
+
+        'Read Brand Setting from system.ini
+        vCamera_Land_Left = MyIni.GetValue("camera_land_left", "brand")
+        vCamera_Land_Right = MyIni.GetValue("camera_land_right", "brand")
+        vCamera_Sea_Left = MyIni.GetValue("camera_sea_left", "brand")
+        vCamera_Sea_Right = MyIni.GetValue("camera_sea_right", "brand")
+
+        vCamera_Land_Left = IIf(vCamera_Land_Left = "", "Hikvision", vCamera_Land_Left)
+        vCamera_Land_Right = IIf(vCamera_Land_Right = "", "Hikvision", vCamera_Land_Right)
+        vCamera_Sea_Left = IIf(vCamera_Sea_Left = "", "Hikvision", vCamera_Sea_Left)
+        vCamera_Sea_Right = IIf(vCamera_Sea_Right = "", "Hikvision", vCamera_Sea_Right)
+
     End Sub
 
     Public Function ScreenResolution() As String
@@ -227,4 +257,180 @@ Public Class frmMain
     Private Sub tsbAll_Click(sender As Object, e As EventArgs) Handles tsbAll.Click
         show_all_side()
     End Sub
+End Class
+
+
+
+Public Class Ini
+
+    Private _Sections As New Dictionary(Of String, Dictionary(Of String, String))
+    Private _FileName As String
+    ''' <summary>
+    ''' </summary>
+    ''' <param name="IniFileName">Drive,Path and Filname for the inifile</param>
+    ''' <remarks></remarks>
+    Public Sub New(ByVal IniFileName As String)
+
+        Dim Rd As StreamReader
+        Dim Content As String
+        Dim Lines() As String
+        Dim Line As String
+        Dim Key As String
+        Dim Value As String
+        Dim SectionValues As Dictionary(Of String, String) = Nothing
+        Dim Name As String
+
+        _FileName = IniFileName
+
+        'check if the file exists
+        If Not File.Exists(IniFileName) Then
+            Throw New FileLoadException(String.Format("The file {0} is not found", IniFileName))
+        Else
+            'Read the file if present.
+            Rd = New StreamReader(IniFileName)
+            Content = Rd.ReadToEnd
+            'Split It into lines
+            Lines = Content.Split(vbCrLf)
+
+            'Place the content in an object sructure
+            For Each Line In Lines
+
+                'Trim the line
+                Line = Line.Trim
+                If Line.Length <= 2 OrElse Line.Substring(0, 1) = "'" OrElse Line.Substring(0, 3).ToUpper = "REM" Then
+                    'There's no valid data or it's commented out... Do nothing 
+                ElseIf Line.IndexOf("[") = 0 AndAlso Line.IndexOf("]") = Line.Length - 1 Then
+                    'We hit a section
+                    Name = Line.Replace("]", String.Empty).Replace("[", String.Empty).Trim.ToUpper
+                    SectionValues = New Dictionary(Of String, String)
+                    _Sections.Add(Name.ToUpper, SectionValues)
+
+                    'An = character as the firstcharacter is an invalid line... let's be relaxed an just ignore it.
+                ElseIf Line.IndexOf("=") > 0 AndAlso SectionValues IsNot Nothing Then
+                    'We hit a value line , empty line or out commented line
+                    'we don't use split as that character could be part of the value as well
+                    Key = Line.Substring(0, Line.IndexOf("=")).Trim
+                    If Line.IndexOf("=") = Line.Length - 1 Then
+                        Value = String.Empty
+                    Else
+                        Value = Line.Substring(Line.IndexOf("=") + 1, Line.Length - (Line.IndexOf("=") + 1)).Trim
+                    End If
+                    'Add the valu to 
+                    SectionValues.Add(Key.ToUpper, Value)
+                End If
+            Next
+
+            Rd.Close()
+            Rd.Dispose()
+            Rd = Nothing
+
+        End If
+    End Sub
+
+    Public Function GetValue(ByVal Section As String, ByVal Name As String) As String
+
+        If _Sections.ContainsKey(Section.ToUpper) Then
+            Dim SectionValues As Dictionary(Of String, String) = Nothing
+            SectionValues = _Sections(Section.ToUpper)
+            If SectionValues.ContainsKey(Name.ToUpper) Then
+                Return SectionValues(Name.ToUpper)
+            End If
+        End If
+
+        Return Nothing 'if preferred return String.empty here
+
+    End Function
+
+    'Public Function SetValue(ByVal Section As String, ByVal Name As String, ByVal Value As String, Optional ByVal Save As Boolean = False) As Boolean
+    '    Dim SectionValues As Dictionary(Of String, String) = Nothing
+    '    Name = Name.ToUpper.Trim
+    '    Section = Section.ToUpper.Trim
+    '    If _Sections.ContainsKey(Section) Then
+    '        SectionValues = _Sections(Section)
+    '        If SectionValues.ContainsKey(Name) Then
+    '            SectionValues.Remove(Name)
+    '        End If
+    '        SectionValues.Add(Name, Value)
+    '    Else
+    '        SectionValues = New Dictionary(Of String, String)
+    '        _Sections.Add(Section, SectionValues)
+    '        SectionValues.Add(Name, Value)
+    '    End If
+
+    '    If Save Then
+    '        Return SaveIniFile()
+    '    Else
+    '        Return True
+    '    End If
+
+    'End Function
+
+
+    'Public Function SaveIniFile() As Boolean
+
+    '    Dim Rw As StreamWriter
+    '    Dim SectionPair As KeyValuePair(Of String, Dictionary(Of String, String))
+    '    Dim ValuePair As KeyValuePair(Of String, String)
+
+    '    Dim Pth As String = Path.GetDirectoryName(_FileName)
+
+    '    If Directory.Exists(Pth) Then
+    '        Rw = New StreamWriter(_FileName, False)
+    '        For Each SectionPair In _Sections
+    '            Rw.WriteLine("[" & SectionPair.Key & "]")
+    '            If SectionPair.Value IsNot Nothing Then
+    '                For Each ValuePair In SectionPair.Value
+    '                    Rw.WriteLine(ValuePair.Key & "=" & ValuePair.Value)
+    '                Next
+    '            End If
+    '        Next
+    '        Rw.WriteLine("")
+    '        Rw.Flush()
+    '        Rw.Close()
+    '        Rw.Dispose()
+    '        Rw = Nothing
+    '        SaveIniFile = True
+    '    End If
+
+    'End Function
+
+    'Function DeleteValue(ByVal Section As String, ByVal Name As String, Optional ByVal Save As Boolean = False) As Boolean
+
+    '    Dim SectionValues As Dictionary(Of String, String) = Nothing
+
+    '    Name = Name.ToUpper.Trim
+    '    Section = Section.ToUpper.Trim
+    '    If _Sections.ContainsKey(Section) Then
+    '        SectionValues = _Sections(Section)
+    '        If SectionValues.ContainsKey(Name) Then
+    '            SectionValues.Remove(Name)
+    '        End If
+    '    End If
+
+    '    If Save Then
+    '        Return SaveIniFile()
+    '    Else
+    '        Return True
+    '    End If
+
+    'End Function
+
+    'Function DeleteSection(ByVal Section As String, Optional ByVal Save As Boolean = False) As Boolean
+
+    '    Dim SectionValues As Dictionary(Of String, String) = Nothing
+
+    '    Section = Section.ToUpper.Trim
+    '    If _Sections.ContainsKey(Section) Then
+    '        _Sections.Remove(Section)
+    '    End If
+
+    '    If Save Then
+    '        Return SaveIniFile()
+    '    Else
+    '        Return True
+    '    End If
+
+    'End Function
+
+
 End Class
