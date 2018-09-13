@@ -122,12 +122,14 @@
   </data>
   <data name="ip_l_1" xml:space="preserve">
     <value>192.168.1.21</value>
+    <comment>192.168.1.21</comment>
   </data>
   <data name="ip_l_2" xml:space="preserve">
     <value>192.168.1.22</value>
   </data>
   <data name="ip_r_1" xml:space="preserve">
     <value>192.168.1.11</value>
+    <comment>192.168.1.11</comment>
   </data>
   <data name="ip_r_2" xml:space="preserve">
     <value>192.168.1.12</value>

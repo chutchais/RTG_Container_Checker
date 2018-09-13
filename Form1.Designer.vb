@@ -38,9 +38,15 @@ Partial Class frmMain
         Me.LandSideToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CenterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.tsbSeaside = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.tsbLandSide = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.tsbAll = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.tsbRatio169 = New System.Windows.Forms.ToolStripButton()
+        Me.tsbRatio43 = New System.Windows.Forms.ToolStripButton()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -58,7 +64,8 @@ Partial Class frmMain
         'SplitContainer1
         '
         Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer1.Location = New System.Drawing.Point(0, 24)
+        Me.SplitContainer1.IsSplitterFixed = True
+        Me.SplitContainer1.Location = New System.Drawing.Point(0, 63)
         Me.SplitContainer1.Name = "SplitContainer1"
         Me.SplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -71,8 +78,8 @@ Partial Class frmMain
         '
         Me.SplitContainer1.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.SplitContainer1.Panel2.Controls.Add(Me.TableLayoutPanel2)
-        Me.SplitContainer1.Size = New System.Drawing.Size(569, 457)
-        Me.SplitContainer1.SplitterDistance = 200
+        Me.SplitContainer1.Size = New System.Drawing.Size(569, 418)
+        Me.SplitContainer1.SplitterDistance = 208
         Me.SplitContainer1.TabIndex = 0
         '
         'TableLayoutPanel1
@@ -88,7 +95,7 @@ Partial Class frmMain
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(569, 200)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(569, 208)
         Me.TableLayoutPanel1.TabIndex = 1
         '
         'AxVLCPluginSea2
@@ -100,7 +107,7 @@ Partial Class frmMain
         Me.AxVLCPluginSea2.Location = New System.Drawing.Point(287, 3)
         Me.AxVLCPluginSea2.Name = "AxVLCPluginSea2"
         Me.AxVLCPluginSea2.OcxState = CType(resources.GetObject("AxVLCPluginSea2.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.AxVLCPluginSea2.Size = New System.Drawing.Size(279, 194)
+        Me.AxVLCPluginSea2.Size = New System.Drawing.Size(279, 202)
         Me.AxVLCPluginSea2.TabIndex = 2
         '
         'AxVLCPluginSea1
@@ -112,7 +119,7 @@ Partial Class frmMain
         Me.AxVLCPluginSea1.Location = New System.Drawing.Point(3, 3)
         Me.AxVLCPluginSea1.Name = "AxVLCPluginSea1"
         Me.AxVLCPluginSea1.OcxState = CType(resources.GetObject("AxVLCPluginSea1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.AxVLCPluginSea1.Size = New System.Drawing.Size(278, 194)
+        Me.AxVLCPluginSea1.Size = New System.Drawing.Size(278, 202)
         Me.AxVLCPluginSea1.TabIndex = 1
         '
         'TableLayoutPanel2
@@ -127,7 +134,7 @@ Partial Class frmMain
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(569, 253)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(569, 206)
         Me.TableLayoutPanel2.TabIndex = 1
         '
         'AxVLCPluginLand2
@@ -139,7 +146,7 @@ Partial Class frmMain
         Me.AxVLCPluginLand2.Location = New System.Drawing.Point(287, 3)
         Me.AxVLCPluginLand2.Name = "AxVLCPluginLand2"
         Me.AxVLCPluginLand2.OcxState = CType(resources.GetObject("AxVLCPluginLand2.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.AxVLCPluginLand2.Size = New System.Drawing.Size(279, 247)
+        Me.AxVLCPluginLand2.Size = New System.Drawing.Size(279, 200)
         Me.AxVLCPluginLand2.TabIndex = 3
         '
         'AxVLCPluginLand1
@@ -151,7 +158,7 @@ Partial Class frmMain
         Me.AxVLCPluginLand1.Location = New System.Drawing.Point(3, 3)
         Me.AxVLCPluginLand1.Name = "AxVLCPluginLand1"
         Me.AxVLCPluginLand1.OcxState = CType(resources.GetObject("AxVLCPluginLand1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.AxVLCPluginLand1.Size = New System.Drawing.Size(278, 247)
+        Me.AxVLCPluginLand1.Size = New System.Drawing.Size(278, 200)
         Me.AxVLCPluginLand1.TabIndex = 2
         '
         'MenuStrip1
@@ -203,44 +210,83 @@ Partial Class frmMain
         '
         'ToolStrip1
         '
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsbSeaside, Me.tsbLandSide, Me.tsbAll})
+        Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(32, 32)
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator1, Me.tsbSeaside, Me.ToolStripSeparator2, Me.tsbLandSide, Me.ToolStripSeparator3, Me.tsbAll, Me.ToolStripSeparator4, Me.tsbRatio169, Me.tsbRatio43})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 24)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(569, 25)
+        Me.ToolStrip1.Size = New System.Drawing.Size(569, 39)
         Me.ToolStrip1.TabIndex = 2
         Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 39)
         '
         'tsbSeaside
         '
         Me.tsbSeaside.Image = CType(resources.GetObject("tsbSeaside.Image"), System.Drawing.Image)
         Me.tsbSeaside.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsbSeaside.Name = "tsbSeaside"
-        Me.tsbSeaside.Size = New System.Drawing.Size(101, 22)
-        Me.tsbSeaside.Text = "Show Sea side"
+        Me.tsbSeaside.Size = New System.Drawing.Size(85, 36)
+        Me.tsbSeaside.Text = "Sea side"
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 39)
         '
         'tsbLandSide
         '
         Me.tsbLandSide.Image = CType(resources.GetObject("tsbLandSide.Image"), System.Drawing.Image)
         Me.tsbLandSide.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsbLandSide.Name = "tsbLandSide"
-        Me.tsbLandSide.Size = New System.Drawing.Size(109, 22)
-        Me.tsbLandSide.Text = "Show Land side"
+        Me.tsbLandSide.Size = New System.Drawing.Size(93, 36)
+        Me.tsbLandSide.Text = "Land side"
+        '
+        'ToolStripSeparator3
+        '
+        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 39)
         '
         'tsbAll
         '
         Me.tsbAll.Image = CType(resources.GetObject("tsbAll.Image"), System.Drawing.Image)
         Me.tsbAll.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsbAll.Name = "tsbAll"
-        Me.tsbAll.Size = New System.Drawing.Size(79, 22)
-        Me.tsbAll.Text = "Show ALL"
+        Me.tsbAll.Size = New System.Drawing.Size(63, 36)
+        Me.tsbAll.Text = "ALL"
+        '
+        'ToolStripSeparator4
+        '
+        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 39)
+        '
+        'tsbRatio169
+        '
+        Me.tsbRatio169.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.tsbRatio169.Image = CType(resources.GetObject("tsbRatio169.Image"), System.Drawing.Image)
+        Me.tsbRatio169.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsbRatio169.Name = "tsbRatio169"
+        Me.tsbRatio169.Size = New System.Drawing.Size(32, 36)
+        Me.tsbRatio169.Text = "16:9"
+        '
+        'tsbRatio43
+        '
+        Me.tsbRatio43.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.tsbRatio43.Image = CType(resources.GetObject("tsbRatio43.Image"), System.Drawing.Image)
+        Me.tsbRatio43.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsbRatio43.Name = "tsbRatio43"
+        Me.tsbRatio43.Size = New System.Drawing.Size(26, 36)
+        Me.tsbRatio43.Text = "4:3"
         '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(569, 481)
-        Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.SplitContainer1)
+        Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
@@ -271,9 +317,6 @@ Partial Class frmMain
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents AxVLCPluginSea1 As AxAXVLC.AxVLCPlugin2
     Friend WithEvents AxVLCPluginSea2 As AxAXVLC.AxVLCPlugin2
-    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
-    Friend WithEvents AxVLCPluginLand2 As AxAXVLC.AxVLCPlugin2
-    Friend WithEvents AxVLCPluginLand1 As AxAXVLC.AxVLCPlugin2
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents CameraToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SettingToolStripMenuItem As ToolStripMenuItem
@@ -285,4 +328,13 @@ Partial Class frmMain
     Friend WithEvents tsbSeaside As ToolStripButton
     Friend WithEvents tsbLandSide As ToolStripButton
     Friend WithEvents tsbAll As ToolStripButton
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
+    Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
+    Friend WithEvents ToolStripSeparator4 As ToolStripSeparator
+    Friend WithEvents tsbRatio169 As ToolStripButton
+    Friend WithEvents tsbRatio43 As ToolStripButton
+    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+    Friend WithEvents AxVLCPluginLand2 As AxAXVLC.AxVLCPlugin2
+    Friend WithEvents AxVLCPluginLand1 As AxAXVLC.AxVLCPlugin2
 End Class

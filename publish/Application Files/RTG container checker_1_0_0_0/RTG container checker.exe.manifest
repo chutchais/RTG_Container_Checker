@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="RTG container checker.exe" version="1.0.0.0" publicKeyToken="78c264df7a7b1199" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="target.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="RTG container checker" version="1.0.0.5" language="neutral" processorArchitecture="msil" />
+    <commandLine file="RTG container checker.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AxInterop.AXVLC.dll" size="25088">
+      <assemblyIdentity name="AxInterop.AXVLC" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>p+4TDNr923l4GrYR+6aVjqoTPyyhdMWFOLKa5JqWDVY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Interop.AXVLC.dll" size="37376">
+      <assemblyIdentity name="Interop.AXVLC" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>3INtuo/0V5X76GDgOqdMJ1epTn45btmcfdrXzGL7178=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="RTG container checker.exe" size="63424">
+      <assemblyIdentity name="RTG container checker" version="1.0.0.5" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>TKhEmyY8icWxCY9vQSc+KIF3meYCS6lxTJRUbM/JZ7k=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="RTG container checker.exe.config" size="188">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>j5XMowm9qYcyNWR87Ke1KpLLXBlaYAR38CaZywZFE9o=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="target.ico" size="4214">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Zt6QvT+bGySBdOUXqG4Gkx+NqHqxpwgr0k7qC5G1XKM=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=LCBT01\Chutchai" issuerKeyHash="a641d09cb47fa8842ed3ec5381b0b98635358a96" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>ORUqJRYyy2S4Xg9lfm3QLD765qD7a0SO2h5VkDH06Ko=</DigestValue></Reference></SignedInfo><SignatureValue>QjM3/2Km4xYJLhUmw5Ypmpiv86fMIrzMQMP66bDyKLCtSNA/al8YS1OS3ZbXnpTKSs8w1vUoK+AUv49cE+ihVJ98fARaPGXurS1TcC3g5DEjYQyT9E7Jdiy4vYTKNU94r+OZDzCOXXmwOj4uyUW9dlK5YGHfSdIi2KIsPrmogy0=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>y2sc7rX7ccnY5eJy/A1VYZGi6uPaeL9d3hJnIGFbErgr6B/E+XLx3OiGJOApC1xrASnL5LxKRQ6AUyhSWzTvV8MVBEDIXWg/QXBBfFwibsktjTvsoc65hqdywV322Y0hG1VIMWyRbepYxOLG0y61+9X2NeRcghomiDqSWOeq3Xc=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="aae8f43190551eda8e446bfba0e6fa3e2cd06d7e650f5eb864cb3216252a1539" Description="" Url=""><as:assemblyIdentity name="RTG container checker.exe" version="1.0.0.0" publicKeyToken="78c264df7a7b1199" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=LCBT01\Chutchai</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>VeXdvP9+L2+37c0YdJh4XZ+6S0Lw3mj+ghAaLc443/0=</DigestValue></Reference></SignedInfo><SignatureValue>nizQmkjqr+3eRt9Fcco+aZAKzJaN2kuH9IFnqvhXE1ntptqIGJBjHU59ppY+UrTUPYX40EE5RpR64TzJL+WQoQBCA0t5W24PQVvF3rBs28lWNG8OYF0prN7TjMl4EjVwczs58DHuMy5rHuH3BPuPthVeVtUE9f9HoDY0epfMUnY=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>y2sc7rX7ccnY5eJy/A1VYZGi6uPaeL9d3hJnIGFbErgr6B/E+XLx3OiGJOApC1xrASnL5LxKRQ6AUyhSWzTvV8MVBEDIXWg/QXBBfFwibsktjTvsoc65hqdywV322Y0hG1VIMWyRbepYxOLG0y61+9X2NeRcghomiDqSWOeq3Xc=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB1TCCAT6gAwIBAgIQaB6QC8I1/ZNDVnBgWgGrITANBgkqhkiG9w0BAQsFADApMScwJQYDVQQDHh4ATABDAEIAVAAwADEAXABDAGgAdQB0AGMAaABhAGkwHhcNMTgwOTA1MDcwMjQxWhcNMTkwOTA1MTMwMjQxWjApMScwJQYDVQQDHh4ATABDAEIAVAAwADEAXABDAGgAdQB0AGMAaABhAGkwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMtrHO61+3HJ2OXicvwNVWGRourj2ni/Xd4SZyBhWxK4K+gfxPly8dzohiTgKQtcawEpy+S8SkUOgFMoUls071fDFQRAyF1oP0FwQXxcIm7JLY077KHOuYancsFd9tmNIRtVSDFskW3qWMTixtMutfvV9jXkXIIaJog6kljnqt13AgMBAAEwDQYJKoZIhvcNAQELBQADgYEAJneNnCAxijtlmZdm8DQVJlJ/mIgI8CN1DjlGTQw5Eh0CXFjOD1LZL1aXtfzaCCeREgJzwc6v1wXzJ7so08PbrF+BbCBBmrqPM0lIkKzn7zkXpe2YlznVWgvr6sNBmdNuNgcg7wr82+vHGCzZPWq0CwsxpyOdQunUogJKbVVqAvQ=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

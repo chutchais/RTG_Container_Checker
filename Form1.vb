@@ -24,6 +24,7 @@ Public Class frmMain
     Dim resx As ResXResourceSet
 
     Dim vToggleView As Boolean = True
+    Dim vToggleRatio As Boolean = False 'Default is "16:9"
 
     'Private Sub btnSwitch_Click(sender As Object, e As EventArgs) Handles btnSwitch.Click
 
@@ -57,6 +58,9 @@ Public Class frmMain
 
         versionNumber = Assembly.GetExecutingAssembly().GetName().Version
         Me.Text = Me.Text & " version :" & versionNumber.ToString & "  (ip : " & GetIPv4Address() & ")"
+
+        ' splitContainerControl1.SplitterPosition = splitContainerControl1.Height / 2;
+        'SplitContainer1.Panel1.Height = SplitContainer1.Height / 2
     End Sub
 
     Private Function GetIPv4Address() As String
@@ -221,10 +225,15 @@ Public Class frmMain
         AxVLCPluginSea1.playlist.play()
         AxVLCPluginSea2.playlist.play()
 
+
         'Disable Land side (21,22)
         AxVLCPluginLand1.playlist.stop()
         AxVLCPluginLand2.playlist.stop()
     End Sub
+
+    'Public Function VLC_ChangeAspectRatio(NewRatio As String)
+    '    VLC.video.aspectRatio = NewRatio
+    'End Function
 
     Sub show_land_side()
 
@@ -234,6 +243,8 @@ Public Class frmMain
         'Enable Land side (21,22)
         AxVLCPluginLand1.playlist.playItem(1)
         AxVLCPluginLand2.playlist.playItem(1)
+
+
         AxVLCPluginLand1.playlist.play()
         AxVLCPluginLand2.playlist.play()
 
@@ -256,6 +267,35 @@ Public Class frmMain
 
     Private Sub tsbAll_Click(sender As Object, e As EventArgs) Handles tsbAll.Click
         show_all_side()
+        ' tsbRatio169_Click(sender, e)
+    End Sub
+
+    Private Sub tsbRatio169_Click(sender As Object, e As EventArgs) Handles tsbRatio169.Click
+        Dim strRatio As String = "16:9" '16:9 ,4:3 ,8:5
+        AxVLCPluginSea1.video.aspectRatio = strRatio
+        AxVLCPluginSea2.video.aspectRatio = strRatio
+        AxVLCPluginLand1.video.aspectRatio = strRatio
+        AxVLCPluginLand2.video.aspectRatio = strRatio
+    End Sub
+
+    Private Sub tsbRatio85_Click(sender As Object, e As EventArgs)
+        Dim strRatio As String = "8:5" '16:9 ,4:3 ,8:5
+        AxVLCPluginSea1.video.aspectRatio = strRatio
+        AxVLCPluginSea2.video.aspectRatio = strRatio
+        AxVLCPluginLand1.video.aspectRatio = strRatio
+        AxVLCPluginLand2.video.aspectRatio = strRatio
+    End Sub
+
+    Private Sub tsbRatio43_Click(sender As Object, e As EventArgs) Handles tsbRatio43.Click
+        Dim strRatio As String = "4:3" '16:9 ,4:3 ,8:5
+        AxVLCPluginSea1.video.aspectRatio = strRatio
+        AxVLCPluginSea2.video.aspectRatio = strRatio
+        AxVLCPluginLand1.video.aspectRatio = strRatio
+        AxVLCPluginLand2.video.aspectRatio = strRatio
+    End Sub
+
+    Private Sub AxVLCPluginLand1_Enter(sender As Object, e As EventArgs) Handles AxVLCPluginLand1.Enter
+
     End Sub
 End Class
 
