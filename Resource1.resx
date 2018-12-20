@@ -121,11 +121,12 @@
     <value>2</value>
   </data>
   <data name="ip_l_1" xml:space="preserve">
-    <value>192.168.1.21</value>
+    <value>192.168.103.15</value>
     <comment>192.168.1.21</comment>
   </data>
   <data name="ip_l_2" xml:space="preserve">
-    <value>192.168.1.22</value>
+    <value>192.168.103.17</value>
+    <comment>192.168.1.22</comment>
   </data>
   <data name="ip_r_1" xml:space="preserve">
     <value>192.168.1.11</value>
@@ -133,11 +134,12 @@
   </data>
   <data name="ip_r_2" xml:space="preserve">
     <value>192.168.1.12</value>
+    <comment>192.168.1.12</comment>
   </data>
   <data name="password" xml:space="preserve">
-    <value>Rtgview2018</value>
+    <value>Gateview2018</value>
   </data>
   <data name="user" xml:space="preserve">
-    <value>rtg</value>
+    <value>gate</value>
   </data>
 </root>

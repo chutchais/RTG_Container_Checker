@@ -29,22 +29,7 @@ Public Class frmMain
     Dim vToggleRatio As Boolean = False 'Default is "16:9"
 
     Dim vRefreshTimer As New Timer
-    Dim vCurrentIx_Sea_Left As Integer = 0
-    Dim vCurrentIx_Sea_Right As Integer = 0
-    Dim vCurrentIx_Land_Left As Integer = 0
-    Dim vCurrentIx_Land_Right As Integer = 0
 
-
-    Private Enum InputState
-        IDLE = 0
-        OPENING = 1
-        BUFFERING = 2
-        PLAYING = 3
-        PAUSED = 4
-        STOPPING = 5
-        ENDED = 6
-        ERRORSTATE = 7
-    End Enum
     'Private Sub btnSwitch_Click(sender As Object, e As EventArgs) Handles btnSwitch.Click
 
     '    With AxVLCPluginR1
@@ -63,52 +48,29 @@ Public Class frmMain
     '    'AxVLCPlugin21.Height = SplitContainer1.Panel1.Height
     'End Sub
 
-    'Public Function GetAnyControlAt(Panel As TableLayoutPanel, Column As Integer, Row As Integer) As Control
-    '    For Each PanelControl As Control In Panel.Controls
-    '        With Panel.GetCellPosition(PanelControl)
-    '            If Column = .Column AndAlso Row = .Row Then Return PanelControl
-    '        End With
-    '    Next
-    '    Return Nothing
-    'End Function
     'To Check camera service , if down program will do reconnect ()  
     Sub RefreshCamera()
         Try
-
             vRefreshTimer.Stop()
             'Sea Left
             If check_Camera_available(vCameraIp_R_1) Then
-                Dim state As InputState = DirectCast(AxVLCPluginSea1.input.state, InputState)
-                If state <> 3 Then
-                    AxVLCPluginSea1.playlist.playItem(vCurrentIx_Sea_Left)
-                End If
-            End If
-            Application.DoEvents()
 
+            End If
+            'vCameraIp_R_2
             'Sea Right
             If check_Camera_available(vCameraIp_R_2) Then
-                Dim state As InputState = DirectCast(AxVLCPluginSea2.input.state, InputState)
-                If state <> 3 Then
-                    AxVLCPluginSea2.playlist.playItem(vCurrentIx_Sea_Right)
-                End If
+
             End If
-            Application.DoEvents()
-            'Land Left
+            'vCameraIp_L_1
+            'Sea Left
             If check_Camera_available(vCameraIp_L_1) Then
-                Dim state As InputState = DirectCast(AxVLCPluginLand1.input.state, InputState)
-                If state <> 3 Then
-                    AxVLCPluginLand1.playlist.playItem(vCurrentIx_Land_Left)
-                End If
+
             End If
-            Application.DoEvents()
-            'Land Left
+            'vCameraIp_L_2
+            'Sea Left
             If check_Camera_available(vCameraIp_L_2) Then
-                Dim state As InputState = DirectCast(AxVLCPluginLand2.input.state, InputState)
-                If state <> 3 Then
-                    AxVLCPluginLand2.playlist.playItem(vCurrentIx_Land_Right)
-                End If
+
             End If
-            Application.DoEvents()
             'check_Camera_available("192.168.103.29")
         Catch ex As Exception
 
@@ -116,22 +78,12 @@ Public Class frmMain
         vRefreshTimer.Start()
     End Sub
 
-    'Sub show_disconnet_box()
-    '    Dim myBrush As System.Drawing.SolidBrush = New System.Drawing.SolidBrush(System.Drawing.Color.Red)
-    '    Dim formGraphics As System.Drawing.Graphics
-    '    formGraphics = Me.CreateGraphics()
-    '    formGraphics.FillRectangle(myBrush, New Rectangle(100, 100, 300, 500))
-    '    myBrush.Dispose()
-    '    formGraphics.Dispose()
-    'End Sub
-
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
         vRefreshTimer.Interval = 5000
         AddHandler vRefreshTimer.Elapsed, New ElapsedEventHandler(AddressOf RefreshCamera)
 
         'Exit Sub
         'check_Camera_available("192.168.103.29")
-        'show_disconnet_box()
 
         Dim fName As String = ("system.ini")              'path to text file
         MyIni = New Ini(fName)
@@ -319,12 +271,6 @@ Public Class frmMain
         AxVLCPluginSea2.playlist.playItem(playlistIndex)
         AxVLCPluginLand1.playlist.playItem(playlistIndex)
         AxVLCPluginLand2.playlist.playItem(playlistIndex)
-
-        vCurrentIx_Sea_Left = 0
-        vCurrentIx_Sea_Right = 0
-        vCurrentIx_Land_Left = 0
-        vCurrentIx_Land_Right = 0
-
     End Sub
     Sub show_sea_side()
 
@@ -336,11 +282,6 @@ Public Class frmMain
         AxVLCPluginSea2.playlist.playItem(1)
         AxVLCPluginSea1.playlist.play()
         AxVLCPluginSea2.playlist.play()
-
-        vCurrentIx_Sea_Left = 1
-        vCurrentIx_Sea_Right = 1
-        vCurrentIx_Land_Left = 0
-        vCurrentIx_Land_Right = 0
 
 
         'Disable Land side (21,22)
@@ -364,11 +305,6 @@ Public Class frmMain
 
         AxVLCPluginLand1.playlist.play()
         AxVLCPluginLand2.playlist.play()
-
-        vCurrentIx_Sea_Left = 0
-        vCurrentIx_Sea_Right = 0
-        vCurrentIx_Land_Left = 1
-        vCurrentIx_Land_Right = 1
 
         'Disable Sea side (11,12)
         AxVLCPluginSea1.playlist.stop()

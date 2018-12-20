@@ -74,7 +74,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to 192.168.1.21.
+        '''  Looks up a localized string similar to 192.168.103.15.
         '''</summary>
         Friend Shared ReadOnly Property ip_l_1() As String
             Get
@@ -83,7 +83,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to 192.168.1.22.
+        '''  Looks up a localized string similar to 192.168.103.17.
         '''</summary>
         Friend Shared ReadOnly Property ip_l_2() As String
             Get
@@ -110,7 +110,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Rtgview2018.
+        '''  Looks up a localized string similar to Gateview2018.
         '''</summary>
         Friend Shared ReadOnly Property password() As String
             Get
@@ -119,7 +119,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to rtg.
+        '''  Looks up a localized string similar to gate.
         '''</summary>
         Friend Shared ReadOnly Property user() As String
             Get
